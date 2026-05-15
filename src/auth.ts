@@ -89,11 +89,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       // Daily role refresh from DB (runs in Node.js context only)
       if (!user && token.id) {
-        const dbUser = await prisma.user.findUnique({
-          where: { id: token.id as string },
-          select: { role: true, name: true },
-        });
-        if (dbUser) token.role = dbUser.role;
+        try {
+          const dbUser = await prisma.user.findUnique({
+            where: { id: token.id as string },
+            select: { role: true, name: true },
+          });
+          if (dbUser) token.role = dbUser.role;
+        } catch {
+          // DB unavailable — keep existing token claims rather than 500ing
+        }
       }
 
       return token;
