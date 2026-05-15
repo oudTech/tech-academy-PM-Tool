@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npx prisma *)",
+      "Bash(npx tsc *)",
+      "Bash(npx next *)",
+      "PowerShell($pkg = Get-Content \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\node_modules\\\\@prisma\\\\client\\\\package.json\" -Raw | ConvertFrom-Json; $pkg.exports.\".\")",
+      "Bash(npm uninstall *)",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\emails\\\\templates\")",
+      "Bash(Out-Null)",
+      "Bash(npm run *)",
+      "Bash(python -c \"f=open\\(r'c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\layout.tsx','rb'\\); print\\(repr\\(f.read\\(200\\)\\)\\)\")",
+      "Read(//c/Users/Divinho/.claude/projects/c--Users-Divinho-Desktop-PM-Tool/b0013267-4ab7-4c8e-bab4-7ae3ae15b4ef/tool-results/**)",
+      "Bash(powershell -Command \"\\(Get-Content prisma/seed.ts -Raw\\) -replace '\\\\\"https://api\\\\.dicebear\\\\.com/7\\\\.x/avataaars/svg\\\\?seed=[^\\\\\"]+\\\\\"', 'null' | Set-Content prisma/seed.ts -Encoding utf8\")",
+      "Bash(Test-Path \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\api\\\\tasks\\\\route.ts\" -PathType Leaf)",
+      "Bash(Test-Path \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\api\\\\notifications\\\\route.ts\" -PathType Leaf)",
+      "Bash(dir server.ts)",
+      "Bash(dir src\\\\lib\\\\socket\\\\*.ts)",
+      "Bash(dir src\\\\lib\\\\socket\\\\handlers\\\\*.ts)",
+      "Bash(dir src\\\\lib\\\\socket\\\\emitters\\\\*.ts)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Divinho\\.claude\\projects\\c--Users-Divinho-Desktop-PM-Tool\\memory",
+      "c:\\Users\\Divinho\\Desktop\\PM_Tool\\src\\emails"
+    ]
+  }
+}

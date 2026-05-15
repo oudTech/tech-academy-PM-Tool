@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Brand palette
+   *   #000103  →  HSL 220 100%  0.6%   (page background — near-black with blue cast)
+   *   #032879  →  HSL 221  95% 24%     (primary brand navy)
+   *   #FFFFFF  →  HSL   0   0% 100%    (foreground / text)
+   *
+   * All surface/border/muted values are derived from #032879 at reduced lightness
+   * so the whole UI reads as a single coherent dark-navy family.
+   */
+
+  :root {
+    --background:          220 100%  0.6%;   /* #000103 */
+    --foreground:            0   0% 100%;    /* #ffffff */
+
+    --card:                220   8%  9%;     /* neutral dark grey */
+    --card-foreground:       0   0% 100%;
+
+    --popover:             220   8% 11%;
+    --popover-foreground:    0   0% 100%;
+
+    --primary:             221  95% 24%;     /* #032879 */
+    --primary-foreground:    0   0% 100%;
+
+    --secondary:           220   8% 13%;
+    --secondary-foreground:  0   0% 100%;
+
+    --muted:               220   6% 11%;
+    --muted-foreground:    220  10% 55%;
+
+    --accent:              220   8% 14%;
+    --accent-foreground:     0   0% 100%;
+
+    --destructive:           0  72%  40%;
+    --destructive-foreground:0   0% 100%;
+
+    --border:              220   6% 16%;
+    --input:               220   6% 13%;
+    --ring:                221  95% 24%;     /* #032879 focus ring */
+
+    --radius: 0.375rem;
+
+    /* Sidebar — slightly distinct from page background for depth */
+    --sidebar-background:          221  95%  2.5%;
+    --sidebar-foreground:            0   0% 95%;
+    --sidebar-primary:             221  95% 24%;     /* #032879 active link */
+    --sidebar-primary-foreground:    0   0% 100%;
+    --sidebar-accent:              221  60%  9%;     /* hover surface */
+    --sidebar-accent-foreground:     0   0% 95%;
+    --sidebar-border:              221  60%  8%;
+    --sidebar-ring:                221  95% 24%;
+  }
+
+  /* App always runs in dark mode (enableSystem=false, defaultTheme="dark") */
+  /* Keeping .dark identical so forced-dark works correctly */
+  .dark {
+    --background:          220 100%  0.6%;
+    --foreground:            0   0% 100%;
+
+    --card:                220   8%  9%;
+    --card-foreground:       0   0% 100%;
+
+    --popover:             220   8% 11%;
+    --popover-foreground:    0   0% 100%;
+
+    --primary:             221  95% 24%;
+    --primary-foreground:    0   0% 100%;
+
+    --secondary:           220   8% 13%;
+    --secondary-foreground:  0   0% 100%;
+
+    --muted:               220   6% 11%;
+    --muted-foreground:    220  10% 55%;
+
+    --accent:              220   8% 14%;
+    --accent-foreground:     0   0% 100%;
+
+    --destructive:           0  72%  40%;
+    --destructive-foreground:0   0% 100%;
+
+    --border:              220   6% 16%;
+    --input:               220   6% 13%;
+    --ring:                221  95% 24%;
+
+    --sidebar-background:          221  95%  2.5%;
+    --sidebar-foreground:            0   0% 95%;
+    --sidebar-primary:             221  95% 24%;
+    --sidebar-primary-foreground:    0   0% 100%;
+    --sidebar-accent:              221  60%  9%;
+    --sidebar-accent-foreground:     0   0% 95%;
+    --sidebar-border:              221  60%  8%;
+    --sidebar-ring:                221  95% 24%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .gradient-primary {
+    background: linear-gradient(135deg, #032879 0%, #010d30 100%);
+  }
+}
+
+/* Kanban board columns */
+.kanban-col {
+  min-height: calc(100vh - 220px);
+}
+
+/* Drag and drop */
+.task-dragging {
+  opacity: 0.5;
+  transform: rotate(2deg) scale(1.02);
+}
+
+.task-drop-target {
+  background: hsl(var(--accent));
+  border: 2px dashed hsl(var(--primary));
+}
