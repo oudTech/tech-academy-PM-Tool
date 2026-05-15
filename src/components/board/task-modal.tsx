@@ -168,7 +168,7 @@ export function TaskModal({ task, isOpen, onClose, onUpdate, onDelete, users, mo
         <div className="flex-1 overflow-y-auto scrollbar-thin">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
             {/* Left: Main content */}
-            <div className="lg:col-span-2 p-6 space-y-5 border-r border-border">
+            <div className="lg:col-span-2 p-4 lg:p-6 space-y-5 lg:border-r border-border">
               {/* Description */}
               <div>
                 <h4 className="text-sm font-medium mb-2 text-muted-foreground">Description</h4>
@@ -286,7 +286,7 @@ export function TaskModal({ task, isOpen, onClose, onUpdate, onDelete, users, mo
             </div>
 
             {/* Right: Metadata */}
-            <div className="p-6 space-y-4 bg-muted/20">
+            <div className="p-4 lg:p-6 space-y-4 bg-muted/20 border-t lg:border-t-0 border-border">
               {/* Assignee */}
               <div>
                 <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Assignee</label>

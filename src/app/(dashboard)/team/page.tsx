@@ -58,7 +58,7 @@ export default function TeamPage() {
       </div>
 
       {/* Team overview cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {Object.entries(ROLE_CONFIG).map(([role, config]) => {
           const count = allUsers.filter((u) => u.role === role).length;
           const Icon = ROLE_ICONS[role as keyof typeof ROLE_ICONS];

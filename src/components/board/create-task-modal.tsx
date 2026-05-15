@@ -70,7 +70,7 @@ export function CreateTaskModal({
             <Textarea {...register("description")} placeholder="Describe the task..." className="mt-1.5" rows={3} />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <Label>Type</Label>
               <Select onValueChange={(v) => setValue("type", v as Task["type"])} defaultValue="TASK">
@@ -100,7 +100,7 @@ export function CreateTaskModal({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <Label>Status</Label>
               <Select onValueChange={(v) => setValue("status", v as Task["status"])} defaultValue={defaultStatus}>
@@ -125,7 +125,7 @@ export function CreateTaskModal({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <Label>Assignee</Label>
               <Select onValueChange={(v) => setValue("assigneeId", v === "none" ? undefined : v)}>

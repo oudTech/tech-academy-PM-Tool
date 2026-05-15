@@ -342,7 +342,7 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-3 auto-rows-[200px]">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-3 auto-rows-[auto] md:auto-rows-[200px]">
         {[...Array(7)].map((_, i) => (
           <div
             key={i}
@@ -360,7 +360,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 gap-3 auto-rows-[200px]">
+    <div className="grid grid-cols-1 md:grid-cols-6 gap-3 auto-rows-[auto] md:auto-rows-[200px]">
       {/* Sprint — tall (2×2) */}
       <BentoCell className="md:col-span-2 md:row-span-2" delay={0}>
         <SprintCell stats={stats} />

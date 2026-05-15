@@ -160,19 +160,19 @@ export default function BoardPage() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+      <div className="flex items-center justify-between mb-4 sm:mb-6 flex-wrap gap-3">
         <div>
-          <h1 className="text-2xl font-bold">Kanban Board</h1>
+          <h1 className="text-xl sm:text-2xl font-bold">Kanban Board</h1>
           <p className="text-muted-foreground text-sm">Drag and drop tasks across columns</p>
         </div>
-        <Button onClick={() => setCreateModalOpen(true)} size="sm" className="gap-1.5">
+        <Button onClick={() => setCreateModalOpen(true)} size="sm" className="gap-1.5 shrink-0">
           <Plus className="h-4 w-4" /> New Task
         </Button>
       </div>
 
       {/* Filters */}
       <div className="flex items-center gap-3 mb-5 flex-wrap">
-        <div className="relative flex-1 min-w-48 max-w-sm">
+        <div className="relative w-full sm:flex-1 sm:min-w-48 sm:max-w-sm">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             value={search}
@@ -183,7 +183,7 @@ export default function BoardPage() {
         </div>
 
         <Select value={filterAssignee} onValueChange={setFilterAssignee}>
-          <SelectTrigger className="w-40 h-9">
+          <SelectTrigger className="w-full sm:w-40 h-9">
             <SelectValue placeholder="Assignee" />
           </SelectTrigger>
           <SelectContent>
@@ -195,7 +195,7 @@ export default function BoardPage() {
         </Select>
 
         <Select value={filterPriority} onValueChange={setFilterPriority}>
-          <SelectTrigger className="w-36 h-9">
+          <SelectTrigger className="w-full sm:w-36 h-9">
             <SelectValue placeholder="Priority" />
           </SelectTrigger>
           <SelectContent>

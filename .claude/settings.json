@@ -20,7 +20,10 @@
       "Bash(dir src\\\\lib\\\\socket\\\\handlers\\\\*.ts)",
       "Bash(dir src\\\\lib\\\\socket\\\\emitters\\\\*.ts)",
       "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")",
-      "Bash(del \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\api\\\\auth\\\\login\\\\route.ts\")"
+      "Bash(del \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\api\\\\auth\\\\login\\\\route.ts\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\" -Recurse -Directory)",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Divinho\\.claude\\projects\\c--Users-Divinho-Desktop-PM-Tool\\memory",

@@ -103,7 +103,7 @@ export function Header() {
             </button>
 
             {notificationsOpen && (
-              <div className="absolute right-0 top-full mt-1 w-80 bg-popover border border-border rounded shadow-lg z-50 overflow-hidden">
+              <div className="absolute right-0 top-full mt-1 w-80 max-w-[calc(100vw-1rem)] bg-popover border border-border rounded shadow-lg z-50 overflow-hidden">
                 <div className="flex items-center justify-between px-3 py-2 border-b border-border">
                   <span className="text-[13px] font-semibold">Notifications</span>
                   {unreadCount > 0 && (

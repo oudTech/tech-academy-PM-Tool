@@ -137,7 +137,7 @@ export default function SprintsPage() {
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {[
           { label: "Total Sprints", value: sprints.length, icon: Rocket, color: "text-navy-500", bg: "bg-navy-500/10" },
           { label: "Active", value: sprints.filter((s) => s.status === "ACTIVE").length, icon: Play, color: "text-blue-500", bg: "bg-blue-500/10" },
