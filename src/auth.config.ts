@@ -16,6 +16,8 @@ const PUBLIC_PATHS = [
 ];
 
 export const authConfig = {
+  trustHost: true,
+
   pages: {
     signIn: "/login",
     error: "/login",
