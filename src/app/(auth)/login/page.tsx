@@ -56,7 +56,7 @@ export default function LoginPage() {
 
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
-    defaultValues: { email: "admin@techacademy.dev", password: "password123" },
+    defaultValues: { email: "", password: "" },
   });
 
   const onSubmit = async (data: LoginInput) => {
