@@ -19,7 +19,8 @@
       "Bash(dir src\\\\lib\\\\socket\\\\*.ts)",
       "Bash(dir src\\\\lib\\\\socket\\\\handlers\\\\*.ts)",
       "Bash(dir src\\\\lib\\\\socket\\\\emitters\\\\*.ts)",
-      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")"
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")",
+      "Bash(del \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\api\\\\auth\\\\login\\\\route.ts\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Divinho\\.claude\\projects\\c--Users-Divinho-Desktop-PM-Tool\\memory",
