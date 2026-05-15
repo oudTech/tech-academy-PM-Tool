@@ -73,6 +73,27 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
 
   callbacks: {
+    // Block OAuth sign-ins for users who were not explicitly invited.
+    // Uninvited users get created by the adapter with password: null — we delete them and redirect.
+    async signIn({ user, account }) {
+      if (!account || account.provider === "credentials") return true;
+      if (!user.email) return false;
+
+      const dbUser = await prisma.user.findUnique({
+        where: { email: user.email },
+        select: { id: true, status: true, password: true },
+      });
+
+      if (!dbUser || dbUser.status !== "ACTIVE" || !dbUser.password) {
+        if (dbUser && !dbUser.password) {
+          await prisma.user.delete({ where: { id: dbUser.id } }).catch(() => {});
+        }
+        return "/login?error=OAuthNotLinked";
+      }
+
+      return true;
+    },
+
     // Override the edge-safe jwt with the full version that can hit Prisma.
     // This runs in Node.js context (API routes, server components) — NOT in middleware.
     async jwt({ token, user, trigger, session }) {

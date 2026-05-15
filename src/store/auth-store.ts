@@ -20,7 +20,8 @@ export const useAuthStore = create<AuthState>()(
       setLoading: (isLoading) => set({ isLoading }),
       logout: async () => {
         set({ user: null });
-        await signOut({ callbackUrl: "/login" });
+        await signOut({ redirect: false });
+        window.location.href = "/login";
       },
     }),
     {

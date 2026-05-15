@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -43,6 +43,16 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/dashboard";
   const { toast } = useToast();
+
+  useEffect(() => {
+    if (searchParams.get("error") === "OAuthNotLinked") {
+      toast({
+        title: "Access denied",
+        description: "You must be invited by an Admin before signing in with Google or GitHub.",
+        variant: "destructive",
+      });
+    }
+  }, [searchParams, toast]);
 
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
