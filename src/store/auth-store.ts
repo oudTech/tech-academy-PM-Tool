@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { signOut } from "next-auth/react";
+import { logoutAction } from "@/actions/auth";
 import type { User } from "@/types";
 
 interface AuthState {
@@ -20,8 +20,7 @@ export const useAuthStore = create<AuthState>()(
       setLoading: (isLoading) => set({ isLoading }),
       logout: async () => {
         set({ user: null });
-        await signOut({ redirect: false });
-        window.location.href = "/login";
+        await logoutAction();
       },
     }),
     {
