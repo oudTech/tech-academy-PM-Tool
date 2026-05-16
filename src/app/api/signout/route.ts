@@ -12,16 +12,16 @@ export async function GET(request: NextRequest) {
   const response = NextResponse.redirect(loginUrl, { status: 302 });
 
   const isProd = process.env.NODE_ENV === "production";
-  const base = { maxAge: 0, path: "/", httpOnly: true, secure: isProd, sameSite: "lax" as const };
+  const cookieOpts = { maxAge: 0, path: "/", httpOnly: true, secure: isProd, sameSite: "lax" as const };
 
   // Auth.js v5 cookie names (http prefix in dev, __Secure- prefix in prod over HTTPS)
-  response.cookies.set("authjs.session-token", "", base);
-  response.cookies.set("__Secure-authjs.session-token", "", base);
-  response.cookies.set("authjs.csrf-token", "", base);
-  response.cookies.set("__Secure-authjs.csrf-token", "", base);
+  response.cookies.set("authjs.session-token", "", cookieOpts);
+  response.cookies.set("__Secure-authjs.session-token", "", cookieOpts);
+  response.cookies.set("authjs.csrf-token", "", cookieOpts);
+  response.cookies.set("__Secure-authjs.csrf-token", "", cookieOpts);
   // Legacy next-auth v4 names
-  response.cookies.set("next-auth.session-token", "", base);
-  response.cookies.set("__Secure-next-auth.session-token", "", base);
+  response.cookies.set("next-auth.session-token", "", cookieOpts);
+  response.cookies.set("__Secure-next-auth.session-token", "", cookieOpts);
 
   return response;
 }
