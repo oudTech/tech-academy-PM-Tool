@@ -3,7 +3,12 @@ import { type NextRequest, NextResponse } from "next/server";
 // Route Handler — allowed to set/clear cookies unlike Server Components.
 // Clears all Auth.js v5 session cookies then redirects to /login.
 export async function GET(request: NextRequest) {
-  const loginUrl = new URL("/login", request.url);
+  // request.url is the internal bind address on Railway (0.0.0.0:8080).
+  // Use NEXTAUTH_URL when available, then fall back to the forwarded public host.
+  const proto = request.headers.get("x-forwarded-proto") ?? "https";
+  const host  = request.headers.get("x-forwarded-host") ?? request.headers.get("host") ?? "localhost:3000";
+  const base  = process.env.NEXTAUTH_URL?.replace(/\/$/, "") ?? `${proto}://${host}`;
+  const loginUrl = new URL("/login", base);
   const response = NextResponse.redirect(loginUrl, { status: 302 });
 
   const isProd = process.env.NODE_ENV === "production";

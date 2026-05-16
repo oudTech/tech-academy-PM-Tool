@@ -24,7 +24,8 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\" -Recurse -Directory)",
       "Bash(Select-Object -ExpandProperty FullName)",
       "Bash(Sort-Object)",
-      "Bash(del \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\signout\\\\page.tsx\")"
+      "Bash(del \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\src\\\\app\\\\signout\\\\page.tsx\")",
+      "Bash(dir \"c:\\\\Users\\\\Divinho\\\\Desktop\\\\PM_Tool\\\\public\" /b)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Divinho\\.claude\\projects\\c--Users-Divinho-Desktop-PM-Tool\\memory",

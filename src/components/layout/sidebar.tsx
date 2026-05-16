@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  LayoutDashboard, KanbanSquare, Zap, Users, BarChart3,
+  LayoutDashboard, KanbanSquare, Users, BarChart3,
   ListTodo, Rocket, ShieldCheck, ChevronLeft, ChevronRight,
 } from "lucide-react";
+import Image from "next/image";
 import { useUIStore } from "@/store/ui-store";
 import { useAuthStore } from "@/store/auth-store";
 import { UserAvatar } from "@/components/ui/user-avatar";
@@ -52,21 +53,17 @@ export function Sidebar() {
       >
         {/* Logo */}
         <div className="flex items-center h-12 border-b border-sidebar-border shrink-0 px-3">
-          <div className="h-6 w-6 rounded bg-navy-600 flex items-center justify-center shrink-0">
-            <Zap className="h-3.5 w-3.5 text-white" />
-          </div>
+          <Image src="/logo-pm-short.png" alt="Logo" width={28} height={28} className="h-7 w-7 object-contain shrink-0" priority />
           {sidebarOpen && (
-            <div className="ml-2.5 min-w-0 flex-1">
-              <p className="text-sidebar-foreground font-semibold text-[13px] leading-none truncate">TechAcademy PM</p>
-            </div>
-          )}
-          {sidebarOpen && (
-            <button
-              onClick={toggleSidebar}
-              className="p-1 rounded text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors"
-            >
-              <ChevronLeft className="h-3.5 w-3.5" />
-            </button>
+            <>
+              <p className="ml-2.5 text-sidebar-foreground font-semibold text-[13px] leading-none truncate flex-1 min-w-0">TechAcademy PM</p>
+              <button
+                onClick={toggleSidebar}
+                className="p-1 rounded text-sidebar-foreground/40 hover:text-sidebar-foreground hover:bg-sidebar-accent transition-colors shrink-0"
+              >
+                <ChevronLeft className="h-3.5 w-3.5" />
+              </button>
+            </>
           )}
         </div>
 
